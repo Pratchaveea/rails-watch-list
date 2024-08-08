@@ -1,0 +1,6 @@
+<div class="container mt-4">
+  <h1>List of Movie</h1>
+  <%@lists.each do |list| %>
+    <p><%= link_to list.name, list_path(list)%></p>
+  <% end %>
+</div>
