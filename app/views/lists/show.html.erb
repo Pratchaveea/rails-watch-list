@@ -1,1 +1,11 @@
-<h1><%= @list.name %><h1>
+<div class="container mt-4">
+    <% @bookmarks.each do |bookmark| %>
+      <h1>
+      <%= bookmark.movie.title %>
+      <%= link_to bookmark_path(bookmark), data: { turbo_method: :destroy, turbo_confirm: "Are you sure?" } do %>
+        <i class="fa-regular fa-trash-can"></i>
+      <% end %>
+      <h2>Comment</h2>
+      <p><%= bookmark.comment %></p>
+    <% end %>
+</div>

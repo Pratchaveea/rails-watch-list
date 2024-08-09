@@ -1,6 +1,19 @@
-<div class="container mt-4">
-  <h1>List of Movie</h1>
-  <%@lists.each do |list| %>
-    <p><%= link_to list.name, list_path(list)%></p>
-  <% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWcwYTFnZnZ5MGYxYWZpcXppNXdmNWxuYWR0cWV6cjc1ZGZ6ZHdrMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2tgDzeE4C7OaA/giphy.webp);">
+  <div class="container">
+    <h1>Joe's Movie List</h1>
+    <%= link_to "Add List", new_list_path, class:"btn btn-info" %>
+  </div>
 </div>
+
+
+
+
+  <div class="card-container mt-5">
+    <div class="cards">
+      <%@lists.each do |list| %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHVxNm1wdXRkenBkMXdxdWpvdGxoeTMwNXp0YXU5bmJ1M2x0d3dveiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o0vwzuFwCGAFO/giphy.webp' %>)">
+            <p><%= link_to list.name, list_path(list)%></p>
+          </div>
+    <% end %>
+    </div>
+  </div>
